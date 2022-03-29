@@ -2,6 +2,7 @@
 # @Python : 3.8
 import random
 import time
+import os
 
 ulpb_dict = {'iu': 'q', 'ei': 'w', 'e': 'e', 'uan': 'r', 'ue': 't', 'un': 'y', 'sh': 'u', 'ch': 'i', 'uo': 'o',
              'ie': 'p', 'a': 'a', 'ong': 's', 'iong': 's', 'ai': 'd', 'en': 'f', 'eng': 'g', 'ang': 'h', 'an': 'j',
@@ -16,8 +17,16 @@ ulpb_dict = {'iu': 'q', 'ei': 'w', 'e': 'e', 'uan': 'r', 'ue': 't', 'un': 'y', '
 #     kv = {line.replace("\n", "").split(",")[1]: line.replace("\n", "").split(",")[0] for line in lines}
 #     return kv
 #
+
+#  创建文件夹
+def path_creat(_path):
+    if not os.path.exists(_path):
+        os.mkdir(_path)
+    return _path
+
+
 def save(name, l, t):
-    with open(f"{name}.csv", "a+", encoding="utf-8-sig") as f:
+    with open(f"./result/{name}.csv", "a+", encoding="utf-8-sig") as f:
         f.write(f"{t},{len(l)},{' '.join(l)}\n")
 
 
@@ -46,6 +55,7 @@ def loop(t) -> list:
 
 
 if __name__ == '__main__':
+    path_creat("./result")
     name = int(time.time())
     print(f"""
 * 欢迎来到小鹤双拼训练                    *
@@ -55,7 +65,7 @@ if __name__ == '__main__':
 * 每次循环成绩(用时,错误数,错误)会记录到{name}.scv""")
     time.sleep(2)
     print("-" * 20)
-    with open(f"{name}.csv", "w", encoding="utf-8-sig") as f:
+    with open(f"./result/{name}.csv", "w", encoding="utf-8-sig") as f:
         f.write("time_used,error_num,error_list\n")
     while True:
         print("-" * 20)
