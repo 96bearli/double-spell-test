@@ -10,7 +10,7 @@ ulpb_dict = {'iu': 'q', 'ei': 'w', 'e': 'e', 'uan': 'r', 'ue': 't', 'un': 'y', '
              'uai': 'k', 'ing': 'k', 'iang': 'l', 'uang': 'l', 'ou': 'z', 'ia': 'x', 'ua': 'x', 'ao': 'c', 'zh': 'v',
              'ui': 'v', 'in': 'b', 'iao': 'n', 'ian': 'm'}
 
-ulpb_dict = {'iu': 'q', 'ei': 'w', 'e': 'e', 'uan': 'r'}
+# ulpb_dict = {'iu': 'q', 'ei': 'w', 'e': 'e', 'uan': 'r'}
 
 
 # def init():
@@ -46,12 +46,12 @@ def loop(t) -> list:
             print(f"Reminder from {random.choice(names)}:\n    Still left:{len(loading_list)}\n    {loading_list}")
             _input = input(f'   {l}对应的字母是：')
         if _input == ulpb_dict[l]:
-            print(f"Right!")
+            print(f"√ Right!")
             loading_list.remove(l)
         else:
             errors.append(l)
             loading_list.append(l)
-            print(f"Error!   {l}:{ulpb_dict[l]}")
+            print(f"X Error!   {l}:{ulpb_dict[l]}")
 
     return errors
 
@@ -71,6 +71,7 @@ if __name__ == '__main__':
         f.write("time_used,error_num,error_list\n")
     while True:
         print("-" * 20)
+        input("\n回车开始这一轮！\n")
         now = time.time()
         errs = loop(now)
         t_u = int(time.time() - now)
@@ -85,5 +86,4 @@ if __name__ == '__main__':
             print(f"本次训练错误次数：{len(errs)}")
             print(f"错误列表：{errs}")
             print(f"已记录到本地{name}.csv\n")
-            print("-" * 20)
-            input("\n回车开始下一轮！\n")
+
