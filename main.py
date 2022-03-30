@@ -3,7 +3,7 @@
 import random
 import time
 import os
-
+names = ["Ava","Bella","Carol","Diana","Eileen"]
 ulpb_dict = {'iu': 'q', 'ei': 'w', 'e': 'e', 'uan': 'r', 'ue': 't', 'un': 'y', 'sh': 'u', 'ch': 'i', 'uo': 'o',
              'ie': 'p', 'a': 'a', 'ong': 's', 'iong': 's', 'ai': 'd', 'en': 'f', 'eng': 'g', 'ang': 'h', 'an': 'j',
              'uai': 'k', 'ing': 'k', 'iang': 'l', 'uang': 'l', 'ou': 'z', 'ia': 'x', 'ua': 'x', 'ao': 'c', 'zh': 'v',
@@ -41,7 +41,7 @@ def loop(t) -> list:
         print("-" * 5, f"time_used:{int(time.time() - now)}s    left:{len(loading_list)}", "-" * 5)
         _input = input(f'*  {l}对应的字母是：')
         while _input == "?":
-            print(f"Check:\n    Still left:{len(loading_list)}\n    {loading_list}")
+            print(f"Reminder from {random.choice(names)}:\n    Still left:{len(loading_list)}\n    {loading_list}")
             _input = input(f'   {l}对应的字母是：')
         if _input == ulpb_dict[l]:
             print(f"Right!")
