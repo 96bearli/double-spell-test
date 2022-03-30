@@ -3,14 +3,16 @@
 import random
 import time
 import os
-names = ["Ava","Bella","Carol","Diana","Eileen"]
+
+names = ["Ava", "Bella", "Carol", "Diana", "Eileen"]
 ulpb_dict = {'iu': 'q', 'ei': 'w', 'e': 'e', 'uan': 'r', 'ue': 't', 'un': 'y', 'sh': 'u', 'ch': 'i', 'uo': 'o',
              'ie': 'p', 'a': 'a', 'ong': 's', 'iong': 's', 'ai': 'd', 'en': 'f', 'eng': 'g', 'ang': 'h', 'an': 'j',
              'uai': 'k', 'ing': 'k', 'iang': 'l', 'uang': 'l', 'ou': 'z', 'ia': 'x', 'ua': 'x', 'ao': 'c', 'zh': 'v',
              'ui': 'v', 'in': 'b', 'iao': 'n', 'ian': 'm'}
 
+ulpb_dict = {'iu': 'q', 'ei': 'w', 'e': 'e', 'uan': 'r'}
 
-# ulpb_dict = {'iu': 'q', 'ei': 'w', 'e': 'e', 'uan': 'r'}
+
 # def init():
 #     with open("./ulpb.csv")as f:
 #         lines = f.readlines()
@@ -82,4 +84,6 @@ if __name__ == '__main__':
         else:
             print(f"本次训练错误次数：{len(errs)}")
             print(f"错误列表：{errs}")
-            print(f"已记录到本地{name}.csv")
+            print(f"已记录到本地{name}.csv\n")
+            print("-" * 20)
+            input("\n回车开始下一轮！\n")
